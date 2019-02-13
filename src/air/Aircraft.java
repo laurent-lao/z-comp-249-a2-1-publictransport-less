@@ -2,9 +2,7 @@ package air;
 
 import transport.PublicTransport;
 
-import java.util.Objects;
-
-// @TODO Test Aircraft
+// @TODO Aircraft copy
 public class Aircraft extends PublicTransport {
 
 
@@ -54,7 +52,7 @@ public class Aircraft extends PublicTransport {
 		Aircraft aircraft = (Aircraft) o;
 		return aircraftClass == aircraft.aircraftClass &&
 				aircraftMaintenanceSchedule == aircraft.aircraftMaintenanceSchedule &&
-				ticketPrice == aircraft.ticketPrice && numberOfStops == aircraft.numberOfStops;
+				super.equals(aircraft);
 	}
 
 	public String toString() {

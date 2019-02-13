@@ -15,4 +15,34 @@ public class PublicTransport {
 		this.ticketPrice = ticketPrice;
 		this.numberOfStops = numberOfStops;
 	}
+
+	public double getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public void setTicketPrice(double ticketPrice) {
+		this.ticketPrice = ticketPrice;
+	}
+
+	public int getNumberOfStops() {
+		return numberOfStops;
+	}
+
+	public void setNumberOfStops(int numberOfStops) {
+		this.numberOfStops = numberOfStops;
+	}
+
+	public boolean equals(Object o) {
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		PublicTransport that = (PublicTransport) o;
+		return ticketPrice == that.ticketPrice &&
+				numberOfStops == that.numberOfStops;
+	}
 }
