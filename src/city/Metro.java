@@ -1,5 +1,5 @@
 package city;
 
-// @TODO
+// @TODO Metro copy
 public class Metro extends CityBus {
 }

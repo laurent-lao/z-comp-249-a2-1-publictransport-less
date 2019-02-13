@@ -45,7 +45,8 @@ public class Ferry extends PublicTransport {
 		}
 		Ferry ferry = (Ferry) o;
 		return buildYear == ferry.buildYear &&
-				skipName.equals(ferry.skipName) && super.equals(ferry);
+				skipName.equals(ferry.skipName) &&
+				super.equals(ferry);
 	}
 
 	public String toString() {
