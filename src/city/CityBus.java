@@ -7,9 +7,9 @@ import java.util.Objects;
 // @TODO CityBus copy
 public class CityBus extends PublicTransport {
 
-	protected long routeNumber;
-	protected int beginOperationYear;
-	protected String lineName = "";
+	protected long   routeNumber;
+	protected int    beginOperationYear;
+	protected String lineName   = "";
 	protected String driverName = "";
 
 	public CityBus() {

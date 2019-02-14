@@ -5,7 +5,7 @@ import transport.PublicTransport;
 //@TODO Ferry copy
 public class Ferry extends PublicTransport {
 
-	int buildYear;
+	int    buildYear;
 	String skipName = "";
 
 	public Ferry() {
