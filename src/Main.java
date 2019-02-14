@@ -33,11 +33,23 @@ public class Main {
 														 "Jacob", "Matthew",
 														 "Hanna", "Brianna"};
 
+	// Usage: listOfColours[getRandomInt(listOfColours.length)]
+	private static String[] listOfColours = new String[] {"Red", "Pink",
+														  "Orange", "Yellow",
+														  "Purple", "Green",
+														  "Blue", "Brown",
+														  "White", "Gray"};
 	public static void main(String[] args) {
 
 		debug_main(); // Debug launcher
 
-		// TODO create a random generator for Public Transport classes
+		// TODO: Create various objects of the 6 classes and display their informations
+
+		// TODO: Test the equality of objects
+
+		// TODO: Create an array of 15 PublicTransportation, fill from 6 classes
+
+		// TODO: Trace search that array for least and most expensive
 	}
 
 	/**
@@ -52,14 +64,7 @@ public class Main {
 		debug_equals();
 
 		// Testing random object generator
-		//for (int i = 0; i < 10; i++)
-		//{
-		//	System.out.println("**** Generating all objects #" + (i + 1) + " ****");
-		//
-		//	System.out.println("Generating a random Aircraft: " + getRandomAircraft());
-		//	System.out.println("Generating a random Ferry: " + getRandomFerry());
-		//	System.out.println("Generating a random City Bus: " + getRandomCityBus());
-		//}
+		debug_randomObjects();
 	}
 
 	private static void debug_constructorAndToString() {
@@ -145,6 +150,21 @@ public class Main {
 		System.out.println("Handles null (should be false): " + metro1.equals(metro4));
 	}
 
+	private static void debug_randomObjects(){
+
+		// Prints randomly generated objects
+		for (int i = 0; i < 10; i++)
+		{
+			System.out.println("**** Generating all objects #" + (i + 1) + " ****");
+
+			System.out.println("Generating a random Aircraft: " + getRandomAircraft());
+			System.out.println("Generating a random Ferry: " + getRandomFerry());
+			System.out.println("Generating a random City Bus: " + getRandomCityBus());
+			System.out.println("Generating a random Tram: " + getRandomTram());
+			System.out.println("Generating a random Metro: " + getRandomMetro());
+		}
+	}
+
 	// End of code testers
 
 	/**
@@ -207,8 +227,7 @@ public class Main {
 	}
 
 	/**
-	 * Generate a random Aircraft
-	 *
+	 * Generate a random Aircraft object
 	 * @return an Aircraft object
 	 */
 	public static Aircraft getRandomAircraft() {
@@ -218,18 +237,35 @@ public class Main {
 		// Get a randomMaintenanceSchedule
 		Maintenance randomMaintenace = Maintenance.values()[getRandomInt(Maintenance.values().length)];
 
-		return new Aircraft(getRandomPrice(), getRandomInt(10), randomClass, randomMaintenace);
+		return new Aircraft(getRandomPrice(), getRandomInt(10) + 1, randomClass, randomMaintenace);
 	}
 
+	/**
+	 * Generate a random Ferry object
+	 * @return a Ferry object
+	 */
 	public static Ferry getRandomFerry() {
 
-		return new Ferry(getRandomPrice(), getRandomInt(10), getRandomYear(120), listOfNames[getRandomInt(listOfNames.length)]);
+		return new Ferry(getRandomPrice(), getRandomInt(10) + 1, getRandomYear(120), listOfNames[getRandomInt(listOfNames.length)]);
 	}
 
+	/**
+	 * Generate a CityBus object
+	 * @return a CityBus object
+	 */
 	public static CityBus getRandomCityBus() {
 
-		// Generating a route number and its corresponding line name
-		long   routeNumber = getRandomInt(500);
+		long   routeNumber = getRandomInt(500) + 1;
+
+		return new CityBus(getRandomPrice(), getRandomInt(100 ) + 1, routeNumber, getRandomYear(120), getLineName(routeNumber), listOfNames[getRandomInt(listOfNames.length)]);
+	}
+
+	/**
+	 * Create a line name according to the route number
+	 * @param routeNumber a long between 0 and 500 (exclusive) that corresponds to the route number
+	 * @return a random line name with the suffix corresponding to the route Number
+	 */
+	private static String getLineName(long routeNumber) {
 		String lineName    = listOfNames[getRandomInt(listOfNames.length)] + " ";
 
 		if (routeNumber < 100)
@@ -248,8 +284,27 @@ public class Main {
 		{
 			lineName += "Express";
 		}
-
-		return new CityBus(getRandomPrice(), getRandomInt(100), routeNumber, getRandomYear(120), lineName, listOfNames[getRandomInt(listOfNames.length)]);
+		return lineName;
 	}
 
+	/**
+	 * Generates a random Tram object
+	 * @return a Tram object
+	 */
+	public static Tram getRandomTram(){
+		long routeNumber = getRandomInt(500) + 1;
+
+		return new Tram(getRandomPrice(), getRandomInt(100) + 1, routeNumber, getRandomYear(120), getLineName(routeNumber), listOfNames[getRandomInt(listOfNames.length)], getRandomInt(100) + 50);
+	}
+
+	/**
+	 * Generates a random Metro object
+	 * @return a Metro object
+	 */
+	public static Metro getRandomMetro()
+	{
+		long routeNumber = getRandomInt(500);
+
+		return new Metro(getRandomPrice(), getRandomInt(30) + 1, getRandomInt(9) + 1, getRandomYear(70), listOfColours[getRandomInt(listOfColours.length)], listOfNames[getRandomInt(listOfNames.length)], (getRandomInt(6) + 5), listOfCities[getRandomInt(listOfCities.length)]);
+	}
 }
