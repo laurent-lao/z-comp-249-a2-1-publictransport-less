@@ -2,7 +2,6 @@
 
 import java.util.Random;
 
-import air.Class;
 import transport.*;
 import air.*;
 import water.*;
@@ -47,6 +46,8 @@ public class Main {
 
 		debug_main(); // Debug launcher
 
+		// TODO: Fix toString formatting
+
 		// TODO: Create various objects of the 6 classes and display their informations
 
 		// TODO: Test the equality of objects
@@ -61,10 +62,10 @@ public class Main {
 	 */
 	public static void debug_main() {
 
-		// ******** Testing constructors ********
+		// Testing constructors
 		debug_constructorAndToString();
 
-		// ******** Testing equals ********
+		// Testing equals
 		debug_equals();
 
 		// Testing random object generator
@@ -77,7 +78,7 @@ public class Main {
 		// Aircraft @DONE
 		System.out.println("Testing Aicraft class");
 		System.out.println("\tDefault: " + new Aircraft());
-		System.out.println("\tParametized: " + new Aircraft(12.34, 3, air.Class.Helicopter, Maintenance.Monthly));
+		System.out.println("\tParametized: " + new Aircraft(12.34, 3, Aircraft.Class.Helicopter, Aircraft.Maintenance.Monthly));
 
 		// Ferry @DONE
 		System.out.println("Testing Ferry class");
@@ -89,12 +90,12 @@ public class Main {
 		System.out.println("\tDefault: " + new CityBus());
 		System.out.println("\tParametized" + new CityBus(11.00, 1, 13, 1991, "Grand", "Steven"));
 
-		// Tram @TODO
+		// Tram @DONE
 		System.out.println("Testing Tram class");
 		System.out.println("\tDefault: " + new Tram());
 		System.out.println("\tParametized" + new Tram(10.00, 2, 14, 1990, "Foo", "Mick", 100));
 
-		// Metro @TODO
+		// Metro @DONE
 		System.out.println("Testing Metro class");
 		System.out.println("\tDefault: " + new Metro());
 		System.out.println("\tParametized" + new Metro(9.00, 3, 15, 1989, "Bar", "Arthur", 8, "Montreal"));
@@ -105,9 +106,9 @@ public class Main {
 
 		// Aircraft @DONE
 		System.out.println("Testing Aircraft class");
-		Aircraft aircraft1 = new Aircraft(12.34, 3, air.Class.Helicopter, Maintenance.Monthly);
-		Aircraft aircraft2 = new Aircraft(12.34, 3, air.Class.Helicopter, Maintenance.Monthly);
-		Aircraft aircraft3 = new Aircraft(12.30, 3, air.Class.Helicopter, Maintenance.Monthly);
+		Aircraft aircraft1 = new Aircraft(12.34, 3, Aircraft.Class.Helicopter, Aircraft.Maintenance.Monthly);
+		Aircraft aircraft2 = new Aircraft(12.34, 3, Aircraft.Class.Helicopter, Aircraft.Maintenance.Monthly);
+		Aircraft aircraft3 = new Aircraft(12.30, 3, Aircraft.Class.Helicopter, Aircraft.Maintenance.Monthly);
 		Aircraft aircraft4 = null;
 		System.out.println("These should be equal: " + aircraft1.equals(aircraft2));
 		System.out.println("These should be not equal: " + aircraft1.equals(aircraft3));
@@ -133,7 +134,7 @@ public class Main {
 		System.out.println("These should be not equal: " + bus1.equals(bus3));
 		System.out.println("Handles null (should be false): " + bus1.equals(bus4));
 
-		// Tram @TODO
+		// Tram @DONE
 		System.out.println("Testing Tram class");
 		Tram tram1 = new Tram(10.00, 2, 14, 1990, "Foo", "Mick", 100);
 		Tram tram2 = new Tram(10.00, 2, 14, 1990, "Foo", "Mick", 100);
@@ -143,7 +144,7 @@ public class Main {
 		System.out.println("These should be not equal: " + tram1.equals(tram3));
 		System.out.println("Handles null (should be false): " + tram1.equals(tram4));
 
-		// Metro @TODO
+		// Metro @DONE
 		System.out.println("Testing Metro class");
 		Metro metro1 = new Metro(9.00, 3, 15, 1989, "Bar", "Arthur", 8, "Montreal");
 		Metro metro2 = new Metro(9.00, 3, 15, 1989, "Bar", "Arthur", 8, "Montreal");
@@ -227,7 +228,7 @@ public class Main {
 	public static int getRandomYear(int maxAge) {
 		int yearNow = 2019;
 
-		return yearNow = 2019 - getRandomInt(maxAge);
+		return yearNow - getRandomInt(maxAge);
 	}
 
 	/**
@@ -237,12 +238,12 @@ public class Main {
 	 */
 	public static Aircraft getRandomAircraft() {
 		// Get a randomClass
-		air.Class randomClass = air.Class.values()[getRandomInt(air.Class.values().length)];
+		Aircraft.Class randomClass = Aircraft.Class.values()[getRandomInt(Aircraft.Class.values().length)];
 
 		// Get a randomMaintenanceSchedule
-		Maintenance randomMaintenace = Maintenance.values()[getRandomInt(Maintenance.values().length)];
+		Aircraft.Maintenance randomMaintenance = Aircraft.Maintenance.values()[getRandomInt(Aircraft.Maintenance.values().length)];
 
-		return new Aircraft(getRandomPrice(), getRandomInt(10) + 1, randomClass, randomMaintenace);
+		return new Aircraft(getRandomPrice(), getRandomInt(10) + 1, randomClass, randomMaintenance);
 	}
 
 	/**
@@ -288,6 +289,10 @@ public class Main {
 		else if (routeNumber < 300)
 		{
 			lineName += "Boulevard";
+		}
+		else if (routeNumber < 400)
+		{
+			lineName += "Night";
 		}
 		else
 		{

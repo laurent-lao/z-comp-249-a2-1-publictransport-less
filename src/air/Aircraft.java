@@ -5,6 +5,20 @@ import transport.PublicTransport;
 // @TODO Aircraft copy
 public class Aircraft extends PublicTransport {
 
+	public enum Class
+	{
+		Helicopter,
+		Airline,
+		Glider,
+		Balloon
+	}
+
+	public enum Maintenance
+	{
+		Weekly,
+		Monthly,
+		Yearly
+	}
 
 	Class       aircraftClass;
 	Maintenance aircraftMaintenanceSchedule;
