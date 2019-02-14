@@ -12,33 +12,37 @@ public class Main {
 
 	// Arrays to be used for generating objects
 	// Usage: listOfCities[getRandomInt(listOfCities.length)]
-	private static String[] listOfCities = new String[] {"Montreal", "Toronto",
-														 "Ottawa", "Calgary",
-														 "Vancouver", "Halifax",
-														 "Fredericton", "Quebec",
-														 "Regina", "Victoria",
-														 "Saskatoon", "Edmonton",
-														 "Charlottetown", "St. John's",
-														 "Winnipeg"};
+	private static String[] listOfCities = new String[] {
+			"Montreal", "Toronto",
+			"Ottawa", "Calgary",
+			"Vancouver", "Halifax",
+			"Fredericton", "Quebec",
+			"Regina", "Victoria",
+			"Saskatoon", "Edmonton",
+			"Charlottetown", "St. John's",
+			"Winnipeg"};
 	// Usage: listOfNames[getRandomInt(listOfNames.length)]
-	private static String[] listOfNames  = new String[] {"Sophia", "Aria",
-														 "Amelia", "Jackson",
-														 "Noah", "Grayson",
-														 "Riley", "Charlotte",
-														 "Olivier", "Elijah",
-														 "Lily", "Emily",
-														 "Logan", "Liam",
-														 "Mason", "Mia",
-														 "Abigail", "Lucas",
-														 "Jacob", "Matthew",
-														 "Hanna", "Brianna"};
+	private static String[] listOfNames  = new String[] {
+			"Sophia", "Aria",
+			"Amelia", "Jackson",
+			"Noah", "Grayson",
+			"Riley", "Charlotte",
+			"Olivier", "Elijah",
+			"Lily", "Emily",
+			"Logan", "Liam",
+			"Mason", "Mia",
+			"Abigail", "Lucas",
+			"Jacob", "Matthew",
+			"Hanna", "Brianna"};
 
 	// Usage: listOfColours[getRandomInt(listOfColours.length)]
-	private static String[] listOfColours = new String[] {"Red", "Pink",
-														  "Orange", "Yellow",
-														  "Purple", "Green",
-														  "Blue", "Brown",
-														  "White", "Gray"};
+	private static String[] listOfColours = new String[] {
+			"Red", "Pink",
+			"Orange", "Yellow",
+			"Purple", "Green",
+			"Blue", "Brown",
+			"White", "Gray"};
+
 	public static void main(String[] args) {
 
 		debug_main(); // Debug launcher
@@ -150,7 +154,7 @@ public class Main {
 		System.out.println("Handles null (should be false): " + metro1.equals(metro4));
 	}
 
-	private static void debug_randomObjects(){
+	private static void debug_randomObjects() {
 
 		// Prints randomly generated objects
 		for (int i = 0; i < 10; i++)
@@ -228,6 +232,7 @@ public class Main {
 
 	/**
 	 * Generate a random Aircraft object
+	 *
 	 * @return an Aircraft object
 	 */
 	public static Aircraft getRandomAircraft() {
@@ -242,6 +247,7 @@ public class Main {
 
 	/**
 	 * Generate a random Ferry object
+	 *
 	 * @return a Ferry object
 	 */
 	public static Ferry getRandomFerry() {
@@ -251,22 +257,25 @@ public class Main {
 
 	/**
 	 * Generate a CityBus object
+	 *
 	 * @return a CityBus object
 	 */
 	public static CityBus getRandomCityBus() {
 
-		long   routeNumber = getRandomInt(500) + 1;
+		long routeNumber = getRandomInt(500) + 1;
 
-		return new CityBus(getRandomPrice(), getRandomInt(100 ) + 1, routeNumber, getRandomYear(120), getLineName(routeNumber), listOfNames[getRandomInt(listOfNames.length)]);
+		return new CityBus(getRandomPrice(), getRandomInt(100) + 1, routeNumber, getRandomYear(120), getLineName(routeNumber), listOfNames[getRandomInt(listOfNames.length)]);
 	}
 
 	/**
 	 * Create a line name according to the route number
+	 *
 	 * @param routeNumber a long between 0 and 500 (exclusive) that corresponds to the route number
+	 *
 	 * @return a random line name with the suffix corresponding to the route Number
 	 */
 	private static String getLineName(long routeNumber) {
-		String lineName    = listOfNames[getRandomInt(listOfNames.length)] + " ";
+		String lineName = listOfNames[getRandomInt(listOfNames.length)] + " ";
 
 		if (routeNumber < 100)
 		{
@@ -289,9 +298,10 @@ public class Main {
 
 	/**
 	 * Generates a random Tram object
+	 *
 	 * @return a Tram object
 	 */
-	public static Tram getRandomTram(){
+	public static Tram getRandomTram() {
 		long routeNumber = getRandomInt(500) + 1;
 
 		return new Tram(getRandomPrice(), getRandomInt(100) + 1, routeNumber, getRandomYear(120), getLineName(routeNumber), listOfNames[getRandomInt(listOfNames.length)], getRandomInt(100) + 50);
@@ -299,10 +309,10 @@ public class Main {
 
 	/**
 	 * Generates a random Metro object
+	 *
 	 * @return a Metro object
 	 */
-	public static Metro getRandomMetro()
-	{
+	public static Metro getRandomMetro() {
 		long routeNumber = getRandomInt(500);
 
 		return new Metro(getRandomPrice(), getRandomInt(30) + 1, getRandomInt(9) + 1, getRandomYear(70), listOfColours[getRandomInt(listOfColours.length)], listOfNames[getRandomInt(listOfNames.length)], (getRandomInt(6) + 5), listOfCities[getRandomInt(listOfCities.length)]);
