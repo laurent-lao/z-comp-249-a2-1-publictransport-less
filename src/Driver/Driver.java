@@ -156,7 +156,7 @@ public class Driver {
 		// Generating 15 objects
 		System.out.println("\n*** Generating the 15 objects ***");
 		PublicTransport[] publicTransports = new PublicTransport[15];
-		fillArrayPublicTransport(publicTransports;
+		fillArrayPublicTransport(publicTransports);
 		printingArrayObjects(publicTransports);
 
 		// Searching for least and mox expensive: arrayOfIndex[0] is least; arrayOfIndex[1] is most
