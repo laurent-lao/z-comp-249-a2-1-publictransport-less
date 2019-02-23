@@ -1,4 +1,14 @@
-// Importing packages
+// -----------------------------------------------------
+// Assignment 2
+// Part: 1
+// Written by: Laurent (40020483)
+// This assignment is meant to evaluate inheritance.
+// It creates multiple objects from classes derived from the PublicTransit class as well as PublicTransit objects
+// inside an array, prints them, verifies for equality as well as trace searches for the least and most expensive
+// ticket prices.
+//
+// EXTRA: Made random object generators because I was too lazy to make them by hand.
+// -----------------------------------------------------
 
 import java.util.Random;
 
@@ -7,7 +17,15 @@ import air.*;
 import water.*;
 import city.*;
 
-public class Main {
+
+/**
+ * Names and ID: Laurent Lao (40020483)
+ * COMP249
+ * Assignment #2 Part 1
+ * Due Date: February 24 2019
+ * Driver file containing main and some static helper methods.
+ */
+public class Driver {
 
 	// Arrays to be used for generating objects
 	// Usage: listOfCities[getRandomInt(listOfCities.length)]
@@ -42,6 +60,12 @@ public class Main {
 			"Blue", "Brown",
 			"White", "Gray"};
 
+	/**
+	 * This assignment is meant to evaluate inheritance.
+	 * It creates multiple objects from classes derived from the PublicTransit class as well as PublicTransit objects
+	 * inside an array, prints them, verifies for equality as well as trace searches for the least and most expensive
+	 * ticket prices.
+	 */
 	public static void main(String[] args) {
 
 		//debug_main(); // Debug launcher
@@ -139,7 +163,7 @@ public class Main {
 	}
 
 	/**
-	 * Used for testing code
+	 * Used for testing code inside main
 	 */
 	public static void debug_main() {
 
@@ -156,6 +180,9 @@ public class Main {
 		debug_copyConstructor();
 	}
 
+	/**
+	 * Used in debugging constructors and toString
+	 */
 	private static void debug_constructorAndToString() {
 		System.out.println("** Testing constructors and toString **");
 
@@ -185,6 +212,9 @@ public class Main {
 		System.out.println("\tParametized" + new Metro(9.00, 3, 15, 1989, "Bar", "Arthur", 8, "Montreal"));
 	}
 
+	/**
+	 * Used in debugging equality
+	 */
 	private static void debug_equals() {
 		System.out.println("** Testing equals() **");
 
@@ -239,6 +269,9 @@ public class Main {
 		System.out.println("Handles null (should be false): " + metro1.equals(metro4));
 	}
 
+	/**
+	 * Used in debugging random object generators
+	 */
 	private static void debug_randomObjects() {
 
 		// Prints randomly generated objects
@@ -254,6 +287,9 @@ public class Main {
 		}
 	}
 
+	/**
+	 * Used in debugging copy constructor
+	 */
 	private static void debug_copyConstructor() {
 		System.out.println("*** Copy Constructor Debugging ***");
 

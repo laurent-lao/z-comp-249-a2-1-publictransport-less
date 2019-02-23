@@ -1,10 +1,33 @@
+// -----------------------------------------------------
+// Assignment 2
+// Part: 1
+// Written by: Laurent (40020483)
+// This assignment is meant to evaluate inheritance.
+// It creates multiple objects from classes derived from the PublicTransit class as well as PublicTransit objects
+// inside an array, prints them, verifies for equality as well as trace searches for the least and most expensive
+// ticket prices.
+// -----------------------------------------------------
+
 package city;
 
+/**
+ * Names and ID: Laurent Lao (40020483)
+ * COMP249
+ * Assignment #2 Part 1
+ * Due Date: February 24 2019
+ * Metro class derived from CityBus.
+ */
 public class Metro extends CityBus {
 
-	private int    numberOfVehicles;
-	private String nameOfTheCity = "";
+	// Visibility: package access -> allows for access of attributes of object from any class/object in the package
+	// This class could be easily derived and derived classes can use these attributes without mutators and accessors
+	// as long as the derived classes are within the same package.
+	int    numberOfVehicles;
+	String nameOfTheCity = "";
 
+	/**
+	 * Default Constructor for Metro
+	 */
 	public Metro() {
 
 		// *** Uses parent class's constructor automatically ***
@@ -12,14 +35,21 @@ public class Metro extends CityBus {
 		this.numberOfVehicles = 0;
 	}
 
-	public Metro(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName, int numberOfVehicules, String nameOfTheCity) {
+	/**
+	 * Parameterized Constructor for Metro
+	 */
+	public Metro(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName, int numberOfVehicles, String nameOfTheCity) {
 		// Uses parent class's constructor
 		super(ticketPrice, numberOfStops, routeNumber, beginOperationYear, lineName, driverName);
 
-		this.numberOfVehicles = numberOfVehicules;
+		this.numberOfVehicles = numberOfVehicles;
 		this.nameOfTheCity = nameOfTheCity;
 	}
 
+	/**
+	 * Copy Constructor for Metro
+	 * @param metro object containing the Metro to be copied
+	 */
 	public Metro(Metro metro) {
 		// Uses parent class's constructor
 		super(metro);
@@ -28,22 +58,44 @@ public class Metro extends CityBus {
 		this.nameOfTheCity = metro.nameOfTheCity;
 	}
 
-	public int getNumberOfVehicules() {
+	/**
+	 * Gets the number of vehicles
+	 * @return an integer representing the number of vehicles
+	 */
+	public int getNumberOfVehicles() {
 		return numberOfVehicles;
 	}
 
-	public void setNumberOfVehicules(int numberOfVehicules) {
-		this.numberOfVehicles = numberOfVehicules;
+	/**
+	 * Sets the number of vehicles
+	 * @param numberOfVehicles an integer containing the new number of vehicles
+	 */
+	public void setNumberOfVehicles(int numberOfVehicles) {
+		this.numberOfVehicles = numberOfVehicles;
 	}
 
+	/**
+	 * Gets the name of the city
+	 * @return a String representing the name of the city in which the object operates
+	 */
 	public String getNameOfTheCity() {
 		return nameOfTheCity;
 	}
 
+	/**
+	 * Sets the name of the city
+	 * @param nameOfTheCity a String containing the new name of the city in which the object operates
+	 */
 	public void setNameOfTheCity(String nameOfTheCity) {
 		this.nameOfTheCity = nameOfTheCity;
 	}
 
+	/**
+	 * Tests for the equality of two objects.
+	 * *** Works for any object except if the calling object itself is null ***
+	 * @param o an object that is to be compared to the calling object
+	 * @return a boolean value that says whether the calling object and the parameter is equal or not
+	 */
 	public boolean equals(Object o) {
 		if (this == o)
 		{
@@ -62,6 +114,10 @@ public class Metro extends CityBus {
 				nameOfTheCity.equals(metro.nameOfTheCity);
 	}
 
+	/**
+	 * Prints the information of the object
+	 * @return a string that represents the information of the object
+	 */
 	public String toString() {
 		return "This Metro's" +
 				" ticket price is $" + ticketPrice +
