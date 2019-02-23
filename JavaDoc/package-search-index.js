@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"air"},{"l":"city"},{"l":"transport"},{"l":"water"}]
+packageSearchIndex = [{"l":"air"},{"l":"city"},{"l":"Driver"},{"l":"transport"},{"l":"water"}]

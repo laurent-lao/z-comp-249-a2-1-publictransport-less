@@ -77,6 +77,8 @@ public class Driver {
 		PublicTransport[] variousObjectsArray    = new PublicTransport[numberOfVariousObjects];
 
 		// Filling the first 6 slots and their copy  // Ferry, City Bus, Tram, Metro
+		System.out.println("Filling the array with " + numberOfVariousObjects + " objects");
+
 		System.out.println("At Index 0\nCreating a parameterized PublicTransport and its copy...");
 		variousObjectsArray[0] = new PublicTransport(10, 5);
 		PublicTransport publicTransportObject_same = new PublicTransport(10, 5);
@@ -152,8 +154,9 @@ public class Driver {
 		}
 
 		// Generating 15 objects
+		System.out.println("\n*** Generating the 15 objects ***");
 		PublicTransport[] publicTransports = new PublicTransport[15];
-		fillArrayPublicTransport(publicTransports, 0);
+		fillArrayPublicTransport(publicTransports;
 		printingArrayObjects(publicTransports);
 
 		// Searching for least and mox expensive: arrayOfIndex[0] is least; arrayOfIndex[1] is most
