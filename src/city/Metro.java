@@ -37,6 +37,15 @@ public class Metro extends CityBus {
 
 	/**
 	 * Parameterized Constructor for Metro
+	 *
+	 * @param ticketPrice        a double containing the ticket price
+	 * @param numberOfStops      an integer containing the number of stops
+	 * @param routeNumber        a long containing the route number
+	 * @param beginOperationYear an integer containing the starting operation year
+	 * @param lineName           a String containing the name of the line
+	 * @param driverName         a String containing the name of the driver
+	 * @param numberOfVehicles   an integer containing the number of vehicles
+	 * @param nameOfTheCity      a String containing the city in which the object operates
 	 */
 	public Metro(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName, int numberOfVehicles, String nameOfTheCity) {
 		// Uses parent class's constructor
@@ -48,6 +57,7 @@ public class Metro extends CityBus {
 
 	/**
 	 * Copy Constructor for Metro
+	 *
 	 * @param metro object containing the Metro to be copied
 	 */
 	public Metro(Metro metro) {
@@ -60,6 +70,7 @@ public class Metro extends CityBus {
 
 	/**
 	 * Gets the number of vehicles
+	 *
 	 * @return an integer representing the number of vehicles
 	 */
 	public int getNumberOfVehicles() {
@@ -68,6 +79,7 @@ public class Metro extends CityBus {
 
 	/**
 	 * Sets the number of vehicles
+	 *
 	 * @param numberOfVehicles an integer containing the new number of vehicles
 	 */
 	public void setNumberOfVehicles(int numberOfVehicles) {
@@ -76,6 +88,7 @@ public class Metro extends CityBus {
 
 	/**
 	 * Gets the name of the city
+	 *
 	 * @return a String representing the name of the city in which the object operates
 	 */
 	public String getNameOfTheCity() {
@@ -84,6 +97,7 @@ public class Metro extends CityBus {
 
 	/**
 	 * Sets the name of the city
+	 *
 	 * @param nameOfTheCity a String containing the new name of the city in which the object operates
 	 */
 	public void setNameOfTheCity(String nameOfTheCity) {
@@ -93,7 +107,9 @@ public class Metro extends CityBus {
 	/**
 	 * Tests for the equality of two objects.
 	 * *** Works for any object except if the calling object itself is null ***
+	 *
 	 * @param o an object that is to be compared to the calling object
+	 *
 	 * @return a boolean value that says whether the calling object and the parameter is equal or not
 	 */
 	public boolean equals(Object o) {
@@ -116,6 +132,7 @@ public class Metro extends CityBus {
 
 	/**
 	 * Prints the information of the object
+	 *
 	 * @return a string that represents the information of the object
 	 */
 	public String toString() {

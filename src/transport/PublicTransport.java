@@ -32,8 +32,12 @@ public class PublicTransport {
 		numberOfStops = 0;
 	}
 
+
 	/**
 	 * Parameterized Constructor for PublicTransport
+	 *
+	 * @param ticketPrice   a double containing the ticketPrice
+	 * @param numberOfStops an integer containing the numberOfStops
 	 */
 	public PublicTransport(double ticketPrice, int numberOfStops) {
 		this.ticketPrice = ticketPrice;
@@ -42,6 +46,7 @@ public class PublicTransport {
 
 	/**
 	 * Copy Constructor for PublicTransport
+	 *
 	 * @param publicTransport object containing the PublicTransport to be copied
 	 */
 	public PublicTransport(PublicTransport publicTransport) {
@@ -51,6 +56,7 @@ public class PublicTransport {
 
 	/**
 	 * Gets price of the tickets
+	 *
 	 * @return a double representing the ticket price
 	 */
 	public double getTicketPrice() {
@@ -59,6 +65,7 @@ public class PublicTransport {
 
 	/**
 	 * Sets the price of the tickets
+	 *
 	 * @param ticketPrice a double containing the new ticket price
 	 */
 	public void setTicketPrice(double ticketPrice) {
@@ -67,6 +74,7 @@ public class PublicTransport {
 
 	/**
 	 * Gets the number of stops
+	 *
 	 * @return an integer representing the number of stops
 	 */
 	public int getNumberOfStops() {
@@ -75,6 +83,7 @@ public class PublicTransport {
 
 	/**
 	 * Sets the number of stops
+	 *
 	 * @param numberOfStops an intenger containing the new number of stops
 	 */
 	public void setNumberOfStops(int numberOfStops) {
@@ -84,7 +93,9 @@ public class PublicTransport {
 	/**
 	 * Tests for the equality of two objects.
 	 * *** Works for any object except if the calling object itself is null ***
+	 *
 	 * @param o an object that is to be compared to the calling object
+	 *
 	 * @return a boolean value that says whether the calling object and the parameter is equal or not
 	 */
 	public boolean equals(Object o) {
@@ -103,6 +114,7 @@ public class PublicTransport {
 
 	/**
 	 * Prints the information of the object
+	 *
 	 * @return a string that represents the information of the object
 	 */
 	public String toString() {

@@ -53,8 +53,14 @@ public class Aircraft extends PublicTransport {
 		aircraftMaintenanceSchedule = null;
 	}
 
+
 	/**
 	 * Parameterized Constructor for Aircraft
+	 *
+	 * @param ticketPrice                 a double containing the ticketPrice
+	 * @param numberOfStops               an integer containing the numberOfStops
+	 * @param aircraftClass               a Class enum type containing the class
+	 * @param aircraftMaintenanceSchedule a Maintenance enum type containing the frequency of the maintenance
 	 */
 	public Aircraft(double ticketPrice, int numberOfStops, Class aircraftClass, Maintenance aircraftMaintenanceSchedule) {
 
@@ -68,6 +74,7 @@ public class Aircraft extends PublicTransport {
 
 	/**
 	 * Copy Constructor for Aircraft
+	 *
 	 * @param aircraft object containing the Aircraft to be copied
 	 */
 	public Aircraft(Aircraft aircraft) {
@@ -80,6 +87,7 @@ public class Aircraft extends PublicTransport {
 
 	/**
 	 * Gets the name of the Aircraft class
+	 *
 	 * @return a Class enum type representing the class of the Aircraft
 	 */
 	public Class getAircraftClass() {
@@ -88,6 +96,7 @@ public class Aircraft extends PublicTransport {
 
 	/**
 	 * Sets the name of the Aircraft class
+	 *
 	 * @param aircraftClass a Class enum type containing the new class of the Aircraft
 	 */
 	public void setAircraftClass(Class aircraftClass) {
@@ -96,6 +105,7 @@ public class Aircraft extends PublicTransport {
 
 	/**
 	 * Gets the frequency of the Aircraft maintenance
+	 *
 	 * @return a Maintenance enum type representing the frequency of the Aircraft maintenance
 	 */
 	public Maintenance getAircraftMaintenanceSchedule() {
@@ -104,6 +114,7 @@ public class Aircraft extends PublicTransport {
 
 	/**
 	 * Sets the frequency of the Aircraft maintenance
+	 *
 	 * @param aircraftMaintenanceSchedule a Maintenance enum type containing the new frequency of the Aircraft maintenance
 	 */
 	public void setAircraftMaintenanceSchedule(Maintenance aircraftMaintenanceSchedule) {
@@ -113,7 +124,9 @@ public class Aircraft extends PublicTransport {
 	/**
 	 * Tests for the equality of two objects.
 	 * *** Works for any object except if the calling object itself is null ***
+	 *
 	 * @param o an object that is to be compared to the calling object
+	 *
 	 * @return a boolean value that says whether the calling object and the parameter is equal or not
 	 */
 	public boolean equals(Object o) {
@@ -136,6 +149,7 @@ public class Aircraft extends PublicTransport {
 
 	/**
 	 * Prints the information of the object
+	 *
 	 * @return a string that represents the information of the object
 	 */
 	public String toString() {

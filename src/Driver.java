@@ -70,6 +70,10 @@ public class Driver {
 
 		//debug_main(); // Debug launcher
 
+		// Welcome message
+		System.out.println("Welcome to Public Transports 2019\n\n");
+
+		// Initializing variousObjectsArray
 		int               numberOfVariousObjects = 8;
 		PublicTransport[] variousObjectsArray    = new PublicTransport[numberOfVariousObjects];
 
@@ -436,7 +440,7 @@ public class Driver {
 	/**
 	 * Generates a random number with a maximum
 	 *
-	 * @param exclusive_maximum
+	 * @param exclusive_maximum an integer containing the maximum of the random number (exclusive)
 	 *
 	 * @return random integer between 0 and exclusive_maximum (exclusive)
 	 */
@@ -482,9 +486,9 @@ public class Driver {
 	/**
 	 * Generate a random year using a max Age
 	 *
-	 * @param maxAge
+	 * @param maxAge an integer containing the maximum Age
 	 *
-	 * @return
+	 * @return an integer representing a year
 	 */
 	public static int getRandomYear(int maxAge) {
 		int yearNow = 2019;

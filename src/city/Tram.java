@@ -36,6 +36,14 @@ public class Tram extends CityBus {
 
 	/**
 	 * Parameterized Constructor for Tram
+	 *
+	 * @param ticketPrice        a double containing the ticket price
+	 * @param numberOfStops      an integer containing the number of stops
+	 * @param routeNumber        a long containing the route number
+	 * @param beginOperationYear an integer containing the starting operation year
+	 * @param lineName           a String containing the name of the line
+	 * @param driverName         a String containing the name of the driver
+	 * @param maximumSpeed       an integer containing the maximum speed
 	 */
 	public Tram(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName, int maximumSpeed) {
 		// Uses parent class's constructor
@@ -46,6 +54,7 @@ public class Tram extends CityBus {
 
 	/**
 	 * Copy Constructor for Tram
+	 *
 	 * @param tram object containing the Tram to be copied
 	 */
 	public Tram(Tram tram) {
@@ -57,6 +66,7 @@ public class Tram extends CityBus {
 
 	/**
 	 * Gets the maximum speed
+	 *
 	 * @return an integer representing the maximum speed
 	 */
 	public int getMaximumSpeed() {
@@ -65,6 +75,7 @@ public class Tram extends CityBus {
 
 	/**
 	 * Sets the maximum speed
+	 *
 	 * @param maximumSpeed an intenger containing the new maximum speed
 	 */
 	public void setMaximumSpeed(int maximumSpeed) {
@@ -74,7 +85,9 @@ public class Tram extends CityBus {
 	/**
 	 * Tests for the equality of two objects.
 	 * *** Works for any object except if the calling object itself is null ***
+	 *
 	 * @param o an object that is to be compared to the calling object
+	 *
 	 * @return a boolean value that says whether the calling object and the parameter is equal or not
 	 */
 	public boolean equals(Object o) {
@@ -96,6 +109,7 @@ public class Tram extends CityBus {
 
 	/**
 	 * Prints the information of the object
+	 *
 	 * @return a string that represents the information of the object
 	 */
 	public String toString() {

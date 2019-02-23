@@ -39,6 +39,11 @@ public class Ferry extends PublicTransport {
 
 	/**
 	 * Parameterized Constructor for Ferry
+	 *
+	 * @param ticketPrice   a double containing the ticketPrice
+	 * @param numberOfStops an integer containing the numberOfStops
+	 * @param buildYear     an integer containing the year it was built
+	 * @param skipName      a String containing the name of the Skip
 	 */
 	public Ferry(double ticketPrice, int numberOfStops, int buildYear, String skipName) {
 		// Uses parent class's constructor
@@ -50,6 +55,7 @@ public class Ferry extends PublicTransport {
 
 	/**
 	 * Copy Constructor for Ferry
+	 *
 	 * @param ferry object containing the Ferry to be copied
 	 */
 	public Ferry(Ferry ferry) {
@@ -62,6 +68,7 @@ public class Ferry extends PublicTransport {
 
 	/**
 	 * Gets the year it was built
+	 *
 	 * @return an integer representing the year it was built
 	 */
 	public int getBuildYear() {
@@ -70,6 +77,7 @@ public class Ferry extends PublicTransport {
 
 	/**
 	 * Sets the year it was built
+	 *
 	 * @param buildYear an integer containing the new year it was built
 	 */
 	public void setBuildYear(int buildYear) {
@@ -78,6 +86,7 @@ public class Ferry extends PublicTransport {
 
 	/**
 	 * Gets the name of the Skip
+	 *
 	 * @return a String representing the name of the Skip
 	 */
 	public String getSkipName() {
@@ -86,6 +95,7 @@ public class Ferry extends PublicTransport {
 
 	/**
 	 * Sets the name of the Skip
+	 *
 	 * @param skipName a String representing the new name of the Skip
 	 */
 	public void setSkipName(String skipName) {
@@ -95,7 +105,9 @@ public class Ferry extends PublicTransport {
 	/**
 	 * Tests for the equality of two objects.
 	 * *** Works for any object except if the calling object itself is null ***
+	 *
 	 * @param o an object that is to be compared to the calling object
+	 *
 	 * @return a boolean value that says whether the calling object and the parameter is equal or not
 	 */
 	public boolean equals(Object o) {
@@ -119,6 +131,7 @@ public class Ferry extends PublicTransport {
 
 	/**
 	 * Prints the information of the object
+	 *
 	 * @return a string that represents the information of the object
 	 */
 	public String toString() {

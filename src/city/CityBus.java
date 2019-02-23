@@ -40,8 +40,16 @@ public class CityBus extends PublicTransport {
 		beginOperationYear = 0;
 	}
 
+
 	/**
 	 * Parameterized Constructor for CityBus
+	 *
+	 * @param ticketPrice        a double containing the ticket price
+	 * @param numberOfStops      an integer containing the number of stops
+	 * @param routeNumber        a long containing the route number
+	 * @param beginOperationYear an integer containing the starting operation year
+	 * @param lineName           a String containing the name of line
+	 * @param driverName         a String containing the name of the driver
 	 */
 	public CityBus(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName) {
 		// Uses parent class's constructor
@@ -55,6 +63,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Copy Constructor for CityBus
+	 *
 	 * @param cityBus object containing the CityBus to be copied
 	 */
 	public CityBus(CityBus cityBus) {
@@ -69,6 +78,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Gets Route Number
+	 *
 	 * @return a long representing the route number
 	 */
 	public long getRouteNumber() {
@@ -77,6 +87,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Sets Route Number
+	 *
 	 * @param routeNumber a long containing the new route number
 	 */
 	public void setRouteNumber(long routeNumber) {
@@ -85,6 +96,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Gets the year it started operating
+	 *
 	 * @return an integer representing the year it started operating
 	 */
 	public int getBeginOperationYear() {
@@ -93,6 +105,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Sets the year it started operating
+	 *
 	 * @param beginOperationYear an intenger containing the year it started operating
 	 */
 	public void setBeginOperationYear(int beginOperationYear) {
@@ -101,6 +114,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Gets the name of the line
+	 *
 	 * @return a string representing the name of the line
 	 */
 	public String getLineName() {
@@ -109,6 +123,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Sets the name of the line
+	 *
 	 * @param lineName a string containing the new name of the line
 	 */
 	public void setLineName(String lineName) {
@@ -117,6 +132,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Gets the name of the driver
+	 *
 	 * @return a string representing the name of the driver
 	 */
 	public String getDriverName() {
@@ -125,6 +141,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Sets the name of the driver
+	 *
 	 * @param driverName a string containing the new name of the driver
 	 */
 	public void setDriverName(String driverName) {
@@ -134,7 +151,9 @@ public class CityBus extends PublicTransport {
 	/**
 	 * Tests for the equality of two objects.
 	 * *** Works for any object except if the calling object itself is null ***
+	 *
 	 * @param o an object that is to be compared to the calling object
+	 *
 	 * @return a boolean value that says whether the calling object and the parameter is equal or not
 	 */
 	public boolean equals(Object o) {
@@ -159,6 +178,7 @@ public class CityBus extends PublicTransport {
 
 	/**
 	 * Prints the information of the object
+	 *
 	 * @return a string that represents the information of the object
 	 */
 	public String toString() {
