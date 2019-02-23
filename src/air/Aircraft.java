@@ -82,10 +82,10 @@ public class Aircraft extends PublicTransport {
 	}
 
 	public String toString() {
-		return "Aircraft:" +
-				" [Ticket Price] " + ticketPrice +
-				" [Number Of Stops] " + numberOfStops +
-				" [Aircraft Class] " + aircraftClass +
-				" [Aircraft Maintenance Schedule] " + aircraftMaintenanceSchedule;
+		return "This Aircraft 's" +
+				" ticket price is $" + ticketPrice +
+				" and has " + numberOfStops +" stops."+
+				" Its class is " + aircraftClass +
+				" and it is maintained " + aircraftMaintenanceSchedule + ".";
 	}
 }

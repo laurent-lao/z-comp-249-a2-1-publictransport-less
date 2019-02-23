@@ -90,12 +90,12 @@ public class CityBus extends PublicTransport {
 	}
 
 	public String toString() {
-		return "City Bus:" +
-				" [Ticket Price] " + ticketPrice +
-				" [Number Of Stops] " + numberOfStops +
-				" [Route Number] " + routeNumber +
-				" [Begin Operation Year] " + beginOperationYear +
-				" [Line Name] " + lineName +
-				" [Driver Name] " + driverName;
+		return "This City Bus's" +
+				" ticket price is $" + ticketPrice +
+				" and has " + numberOfStops + " stops." +
+				" The Route Number " + routeNumber +
+				" (" + lineName + ")" +
+				" started in " + beginOperationYear +
+				" and is driven by " + driverName + ".";
 	}
 }

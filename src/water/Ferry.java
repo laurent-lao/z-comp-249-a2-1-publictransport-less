@@ -66,10 +66,10 @@ public class Ferry extends PublicTransport {
 	}
 
 	public String toString() {
-		return "Ferry:" +
-				" [Ticket Price] " + ticketPrice +
-				" [Number Of Stops] " + numberOfStops +
-				" [Build Year] " + buildYear +
-				" [Skip Name] " + skipName;
+		return "This Ferry's" +
+				" ticket price is $" + ticketPrice +
+				" and has " + numberOfStops + " stops." +
+				" It was built in " + buildYear +
+				" and its Skipper is " + skipName + ".";
 	}
 }

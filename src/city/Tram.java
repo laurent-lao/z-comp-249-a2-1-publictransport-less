@@ -51,13 +51,13 @@ public class Tram extends CityBus {
 	}
 
 	public String toString() {
-		return "Tram:" +
-				" [Ticket Price] " + ticketPrice +
-				" [Number Of Stops] " + numberOfStops +
-				" [Route Number] " + routeNumber +
-				" [Begin Operation Year] " + beginOperationYear +
-				" [Line Name] " + lineName +
-				" [Driver Name] " + driverName +
-				" [Maximum Speed] " + maximumSpeed;
+		return "This Tram's" +
+				" ticket price is $" + ticketPrice +
+				", has " + numberOfStops + " stops" +
+				" and has a maximum speed of " + maximumSpeed +" km/h. "+
+				" The Route Number " + routeNumber +
+				" (" + lineName + ")" +
+				" started in " + beginOperationYear +
+				" and is driven by " + driverName + ".";
 	}
 }

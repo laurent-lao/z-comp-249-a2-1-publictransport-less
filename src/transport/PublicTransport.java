@@ -51,8 +51,8 @@ public class PublicTransport {
 	}
 
 	public String toString() {
-		return "Public Transport:" +
-				" [Ticket price] " + ticketPrice +
-				" [Number Of stops] " + numberOfStops;
+		return "This Public Transport's" +
+				" ticket price is $" + ticketPrice +
+				" and has " + numberOfStops + " stops.";
 	}
 }
