@@ -1,4 +1,4 @@
-// -----------------------------------------------------
+package Driver;// -----------------------------------------------------
 // Assignment 2
 // Part: 1
 // Written by: Laurent (40020483)
@@ -17,13 +17,12 @@ import air.*;
 import water.*;
 import city.*;
 
-
 /**
  * Names and ID: Laurent Lao (40020483)
  * COMP249
  * Assignment #2 Part 1
  * Due Date: February 24 2019
- * Driver file containing main and some static helper methods.
+ * Driver.Driver file containing main and some static helper methods.
  */
 public class Driver {
 
