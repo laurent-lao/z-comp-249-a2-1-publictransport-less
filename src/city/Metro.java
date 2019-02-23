@@ -1,21 +1,31 @@
 package city;
 
-import java.util.Objects;
-
-// @TODO Metro copy
 public class Metro extends CityBus {
 
 	private int    numberOfVehicules;
 	private String nameOfTheCity = "";
 
 	public Metro() {
+
+		// *** Uses parent class's constructor automatically ***
+
 		this.numberOfVehicules = 0;
 	}
 
 	public Metro(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName, int numberOfVehicules, String nameOfTheCity) {
+		// Uses parent class's constructor
 		super(ticketPrice, numberOfStops, routeNumber, beginOperationYear, lineName, driverName);
+
 		this.numberOfVehicules = numberOfVehicules;
 		this.nameOfTheCity = nameOfTheCity;
+	}
+
+	public Metro(Metro metro) {
+		// Uses parent class's constructor
+		super(metro);
+
+		this.numberOfVehicules = metro.numberOfVehicules;
+		this.nameOfTheCity = metro.nameOfTheCity;
 	}
 
 	public int getNumberOfVehicules() {
@@ -49,20 +59,18 @@ public class Metro extends CityBus {
 		}
 		Metro metro = (Metro) o;
 		return numberOfVehicules == metro.numberOfVehicules &&
-				nameOfTheCity.equals(metro.nameOfTheCity)
-				&& super.equals(metro);
+				nameOfTheCity.equals(metro.nameOfTheCity);
 	}
 
 	public String toString() {
-		return "Metro{" +
-				"numberOfVehicules=" + numberOfVehicules +
-				", nameOfTheCity='" + nameOfTheCity + '\'' +
-				", routeNumber=" + routeNumber +
-				", beginOperationYear=" + beginOperationYear +
-				", lineName='" + lineName + '\'' +
-				", driverName='" + driverName + '\'' +
-				", ticketPrice=" + ticketPrice +
-				", numberOfStops=" + numberOfStops +
-				'}';
+		return "Metro:" +
+				" [Ticket Price] " + ticketPrice +
+				" [Number Of Stops] " + numberOfStops +
+				" [Route Number] " + routeNumber +
+				" [Begin Operation Year] " + beginOperationYear +
+				" [Line Name] " + lineName +
+				" [Driver Name] " + driverName +
+				" [Number Of Vehicule] " + numberOfVehicules +
+				" [Name Of The City] " + nameOfTheCity;
 	}
 }

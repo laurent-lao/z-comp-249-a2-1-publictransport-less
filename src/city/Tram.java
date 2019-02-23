@@ -1,19 +1,28 @@
 package city;
 
-import java.util.Objects;
-
-// @TODO Tram Copy
 public class Tram extends CityBus {
 
 	private int maximumSpeed;
 
 	public Tram() {
+
+		// *** Uses parent class's constructor automatically ***
+
 		this.maximumSpeed = 0;
 	}
 
 	public Tram(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName, int maximumSpeed) {
+		// Uses parent class's constructor
 		super(ticketPrice, numberOfStops, routeNumber, beginOperationYear, lineName, driverName);
+
 		this.maximumSpeed = maximumSpeed;
+	}
+
+	public Tram(Tram tram) {
+		// Uses parent class's constructor
+		super(tram);
+
+		this.maximumSpeed = tram.maximumSpeed;
 	}
 
 	public int getMaximumSpeed() {
@@ -38,18 +47,17 @@ public class Tram extends CityBus {
 			return false;
 		}
 		Tram tram = (Tram) o;
-		return maximumSpeed == tram.maximumSpeed && super.equals(tram);
+		return maximumSpeed == tram.maximumSpeed;
 	}
 
 	public String toString() {
-		return "Tram{" +
-				"maximumSpeed=" + maximumSpeed +
-				", routeNumber=" + routeNumber +
-				", beginOperationYear=" + beginOperationYear +
-				", lineName='" + lineName + '\'' +
-				", driverName='" + driverName + '\'' +
-				", ticketPrice=" + ticketPrice +
-				", numberOfStops=" + numberOfStops +
-				'}';
+		return "Tram:" +
+				" [Ticket Price] " + ticketPrice +
+				" [Number Of Stops] " + numberOfStops +
+				" [Route Number] " + routeNumber +
+				" [Begin Operation Year] " + beginOperationYear +
+				" [Line Name] " + lineName +
+				" [Driver Name] " + driverName +
+				" [Maximum Speed] " + maximumSpeed;
 	}
 }

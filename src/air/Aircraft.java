@@ -5,16 +5,14 @@ import transport.PublicTransport;
 // @TODO Aircraft copy
 public class Aircraft extends PublicTransport {
 
-	public enum Class
-	{
+	public enum Class {
 		Helicopter,
 		Airline,
 		Glider,
 		Balloon
 	}
 
-	public enum Maintenance
-	{
+	public enum Maintenance {
 		Weekly,
 		Monthly,
 		Yearly
@@ -24,6 +22,9 @@ public class Aircraft extends PublicTransport {
 	Maintenance aircraftMaintenanceSchedule;
 
 	public Aircraft() {
+
+		// *** Uses parent class's constructor automatically *** no need of super()
+
 		aircraftClass = null;
 		aircraftMaintenanceSchedule = null;
 	}
@@ -36,6 +37,14 @@ public class Aircraft extends PublicTransport {
 		this.aircraftClass = aircraftClass;
 		this.aircraftMaintenanceSchedule = aircraftMaintenanceSchedule;
 
+	}
+
+	public Aircraft(Aircraft aircraft) {
+		// Uses parent class's constructor
+		super(aircraft);
+
+		this.aircraftClass = aircraft.aircraftClass;
+		this.aircraftMaintenanceSchedule = aircraft.aircraftMaintenanceSchedule;
 	}
 
 	public Class getAircraftClass() {
@@ -63,18 +72,20 @@ public class Aircraft extends PublicTransport {
 		{
 			return false;
 		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
 		Aircraft aircraft = (Aircraft) o;
 		return aircraftClass == aircraft.aircraftClass &&
-				aircraftMaintenanceSchedule == aircraft.aircraftMaintenanceSchedule &&
-				super.equals(aircraft);
+				aircraftMaintenanceSchedule == aircraft.aircraftMaintenanceSchedule;
 	}
 
 	public String toString() {
-		return "Aircraft{" +
-				"aircraftClass=" + aircraftClass +
-				", aircraftMaintenanceSchedule=" + aircraftMaintenanceSchedule +
-				", ticketPrice=" + ticketPrice +
-				", numberOfStops=" + numberOfStops +
-				'}';
+		return "Aircraft:" +
+				" [Ticket Price] " + ticketPrice +
+				" [Number Of Stops] " + numberOfStops +
+				" [Aircraft Class] " + aircraftClass +
+				" [Aircraft Maintenance Schedule] " + aircraftMaintenanceSchedule;
 	}
 }

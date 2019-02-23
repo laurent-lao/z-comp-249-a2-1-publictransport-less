@@ -1,10 +1,9 @@
 package transport;
 
-// @TODO
 public class PublicTransport {
 
 	protected double ticketPrice;
-	protected int numberOfStops;
+	protected int    numberOfStops;
 
 	public PublicTransport() {
 		ticketPrice = 0;
@@ -14,6 +13,11 @@ public class PublicTransport {
 	public PublicTransport(double ticketPrice, int numberOfStops) {
 		this.ticketPrice = ticketPrice;
 		this.numberOfStops = numberOfStops;
+	}
+
+	public PublicTransport(PublicTransport publicTransport) {
+		this.ticketPrice = publicTransport.ticketPrice;
+		this.numberOfStops = publicTransport.numberOfStops;
 	}
 
 	public double getTicketPrice() {
@@ -44,5 +48,11 @@ public class PublicTransport {
 		PublicTransport that = (PublicTransport) o;
 		return ticketPrice == that.ticketPrice &&
 				numberOfStops == that.numberOfStops;
+	}
+
+	public String toString() {
+		return "Public Transport:" +
+				" [Ticket price] " + ticketPrice +
+				" [Number Of stops] " + numberOfStops;
 	}
 }

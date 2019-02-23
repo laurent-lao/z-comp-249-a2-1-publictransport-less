@@ -2,9 +2,6 @@ package city;
 
 import transport.PublicTransport;
 
-import java.util.Objects;
-
-// @TODO CityBus copy
 public class CityBus extends PublicTransport {
 
 	protected long   routeNumber;
@@ -13,16 +10,31 @@ public class CityBus extends PublicTransport {
 	protected String driverName = "";
 
 	public CityBus() {
+
+		// *** Uses parent class's constructor automatically ***
+
 		routeNumber = 0;
 		beginOperationYear = 0;
 	}
 
 	public CityBus(double ticketPrice, int numberOfStops, long routeNumber, int beginOperationYear, String lineName, String driverName) {
+		// Uses parent class's constructor
 		super(ticketPrice, numberOfStops);
+
 		this.routeNumber = routeNumber;
 		this.beginOperationYear = beginOperationYear;
 		this.lineName = lineName;
 		this.driverName = driverName;
+	}
+
+	public CityBus(CityBus citybus) {
+		// Uses parent class's constructor
+		super(citybus);
+
+		this.routeNumber = citybus.routeNumber;
+		this.beginOperationYear = citybus.beginOperationYear;
+		this.lineName = citybus.lineName;
+		this.driverName = citybus.driverName;
 	}
 
 	public long getRouteNumber() {
@@ -74,18 +86,16 @@ public class CityBus extends PublicTransport {
 		return routeNumber == cityBus.routeNumber &&
 				beginOperationYear == cityBus.beginOperationYear &&
 				lineName.equals(cityBus.lineName) &&
-				driverName.equals(cityBus.driverName) &&
-				super.equals(cityBus);
+				driverName.equals(cityBus.driverName);
 	}
 
 	public String toString() {
-		return "CityBus{" +
-				"routeNumber=" + routeNumber +
-				", beginOperationYear=" + beginOperationYear +
-				", lineName='" + lineName + '\'' +
-				", driverName='" + driverName + '\'' +
-				", ticketPrice=" + ticketPrice +
-				", numberOfStops=" + numberOfStops +
-				'}';
+		return "City Bus:" +
+				" [Ticket Price] " + ticketPrice +
+				" [Number Of Stops] " + numberOfStops +
+				" [Route Number] " + routeNumber +
+				" [Begin Operation Year] " + beginOperationYear +
+				" [Line Name] " + lineName +
+				" [Driver Name] " + driverName;
 	}
 }

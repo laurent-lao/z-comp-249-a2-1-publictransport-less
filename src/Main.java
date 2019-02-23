@@ -44,17 +44,98 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		debug_main(); // Debug launcher
+		//debug_main(); // Debug launcher
 
-		// TODO: Fix toString formatting
+		int               numberOfVariousObjects = 8;
+		PublicTransport[] variousObjectsArray    = new PublicTransport[numberOfVariousObjects];
 
-		// TODO: Create various objects of the 6 classes and display their informations
+		// Filling the first 6 slots and their copy  // Ferry, City Bus, Tram, Metro
+		System.out.println("At Index 0\nCreating a parameterized PublicTransport and its copy...");
+		variousObjectsArray[0] = new PublicTransport(10, 5);
+		PublicTransport publicTransportObject_same = new PublicTransport(10, 5);
 
-		// TODO: Test the equality of objects
+		System.out.println("At Index 1\nCreating a parameterized Aircraft and its copy...");
+		variousObjectsArray[1] = new Aircraft(525, 2, Aircraft.Class.Helicopter, Aircraft.Maintenance.Monthly);
+		Aircraft aircraft_same = new Aircraft(525, 2, Aircraft.Class.Helicopter, Aircraft.Maintenance.Monthly);
 
-		// TODO: Create an array of 15 PublicTransportation, fill from 6 classes
+		System.out.println("At Index 2\nCreating a parameterized Ferry and its copy...");
+		variousObjectsArray[2] = new Ferry(25, 5, 1991, "Laurent");
+		Ferry ferry_same = new Ferry(25, 5, 1991, "Laurent");
 
-		// TODO: Trace search that array for least and most expensive
+		System.out.println("At Index 3\nCreating a parameterized CityBus and its copy...");
+		variousObjectsArray[3] = new CityBus(2, 25, 47, 1985, "Masson Avenue", "Laurent");
+		CityBus cityBus_same = new CityBus(2, 25, 47, 1985, "Masson Avenue", "Laurent");
+
+		System.out.println("At Index 4\nCreating a parameterized Tram and its copy...");
+		variousObjectsArray[4] = new Tram(7, 15, 45, 1925, "Papineau Avenue", "My-Linh", 50);
+		Tram tram_same = new Tram(7, 15, 45, 1925, "Papineau Avenue", "My-Linh", 50);
+
+		System.out.println("At Index 5\nCreating a parameterized Metro and its copy...");
+		variousObjectsArray[5] = new Metro(3.25, 20, 2, 1967, "Ligne Orange", "Bao", 7, "Chicago");
+		Metro metro_same = new Metro(3.25, 20, 2, 1967, "Ligne Orange", "Bao", 7, "Chicago");
+
+		// Fill the rest of the array and print the array
+		fillArrayPublicTransport(variousObjectsArray, 6);
+		printingArrayObjects(variousObjectsArray);
+
+		// Comparing objects for equality
+		for (int i = 0; i < variousObjectsArray.length; i++)
+		{
+			PublicTransport objectToCompare = variousObjectsArray[i];
+			PublicTransport otherObjectToCompare;
+
+			// The first 6 objects should be equal, the rest of the objects will be compared randomly
+			switch (i)
+			{
+				case 0:
+					otherObjectToCompare = publicTransportObject_same;
+					break;
+				case 1:
+					otherObjectToCompare = aircraft_same;
+					break;
+				case 2:
+					otherObjectToCompare = ferry_same;
+					break;
+				case 3:
+					otherObjectToCompare = cityBus_same;
+					break;
+				case 4:
+					otherObjectToCompare = tram_same;
+					break;
+				case 5:
+					otherObjectToCompare = metro_same;
+					break;
+				default:
+					otherObjectToCompare = variousObjectsArray[getRandomInt(variousObjectsArray.length)];
+					break;
+			}
+
+			System.out.println("*** Comparing for equality #" + i + " ***");
+			System.out.println("\t" + objectToCompare);
+			System.out.println("\t" + otherObjectToCompare);
+			System.out.println("\tEquality: " + objectToCompare.equals(otherObjectToCompare) + "\t");
+		}
+
+		// Comparing against null
+		PublicTransport nullObject = null;
+		System.out.println("*** Comparing against null ***");
+		for (int i = 0; i < variousObjectsArray.length; i++)
+		{
+			System.out.println("\t Index " + i + (i < 10 ? " " : "") + " .equals(nullObject): " + variousObjectsArray.equals(nullObject));
+		}
+
+		// Generating 15 objects
+		PublicTransport[] publicTransports = new PublicTransport[15];
+		fillArrayPublicTransport(publicTransports, 0);
+		printingArrayObjects(publicTransports);
+
+		// Searching for least and mox expensive: arrayOfIndex[0] is least; arrayOfIndex[1] is most
+		int[] arrayOfIndex = traceSearchLeastAndMostExpensive(publicTransports);
+		System.out.println("The least expensive item is at index " + arrayOfIndex[0] + ": " + publicTransports[arrayOfIndex[0]]);
+		System.out.println("The most  expensive item is at index " + arrayOfIndex[1] + ": " + publicTransports[arrayOfIndex[1]]);
+
+		// Signal end of program
+		System.out.println("End of Program");
 	}
 
 	/**
@@ -70,6 +151,9 @@ public class Main {
 
 		// Testing random object generator
 		debug_randomObjects();
+
+		// Testing copy Constructor
+		debug_copyConstructor();
 	}
 
 	private static void debug_constructorAndToString() {
@@ -170,7 +254,148 @@ public class Main {
 		}
 	}
 
+	private static void debug_copyConstructor() {
+		System.out.println("*** Copy Constructor Debugging ***");
+
+		PublicTransport publicTransport = getRandomPublicTransport();
+		Aircraft        aircraft        = getRandomAircraft();
+		Ferry           ferry           = getRandomFerry();
+		CityBus         cityBus         = getRandomCityBus();
+		Tram            tram            = getRandomTram();
+		Metro           metro           = getRandomMetro();
+
+		System.out.println(publicTransport + "\n" + new PublicTransport(publicTransport));
+		System.out.println(aircraft + "\n" + new Aircraft(aircraft));
+		System.out.println(ferry + "\n" + new Ferry(ferry));
+		System.out.println(cityBus + "\n" + new CityBus(cityBus));
+		System.out.println(tram + "\n" + new Tram(tram));
+		System.out.println(metro + "\n" + new Metro(metro));
+	}
+
 	// End of code testers
+
+	/**
+	 * Fills an array with random Objects from the 6 classes, ensures that the first 6 objects are at least one of each
+	 *
+	 * @param array array of PublicTransport to be filled
+	 */
+	public static void fillArrayPublicTransport(PublicTransport[] array) {
+		fillArrayPublicTransport(array, 0);
+	}
+
+	/**
+	 * Fills an array with random Objects from the 6 classes, ensures that the first 6 objects are at least one of each
+	 *
+	 * @param array         array of PublicTransport to be filled
+	 * @param startingIndex the index from which to start (in case the array was manually filled before)
+	 */
+	public static void fillArrayPublicTransport(PublicTransport[] array, int startingIndex) {
+		for (int i = startingIndex; i < array.length; i++)
+		{
+			int choice;
+
+			if (i < 6)
+			{
+				choice = i;
+			}
+			else
+			{
+				choice = getRandomInt(6);
+			}
+
+			System.out.println("At Index " + i);
+
+			switch (choice)
+			{
+				case 0:
+					System.out.println("Generating a random Public Transport...");
+					array[i] = getRandomPublicTransport();
+					break;
+				case 1:
+					System.out.println("Generating a random Aircraft...");
+					array[i] = getRandomAircraft();
+					break;
+				case 2:
+					System.out.println("Generating a random Ferry...");
+					array[i] = getRandomFerry();
+					break;
+				case 3:
+					System.out.println("Generating a random City Bus...");
+					array[i] = getRandomCityBus();
+					break;
+				case 4:
+					System.out.println("Generating a random Tram...");
+					array[i] = getRandomTram();
+					break;
+				case 5:
+					System.out.println("Generating a random Metro...");
+					array[i] = getRandomMetro();
+					break;
+			}
+		}
+	}
+
+	/**
+	 * Prints the array of PublicTransport
+	 *
+	 * @param array the array of PublicTransport to be printed
+	 */
+	public static void printingArrayObjects(PublicTransport[] array) {
+		System.out.println("\n*** Printing the array of " + array.length + " objects ***");
+		for (int i = 0; i < array.length; i++)
+		{
+			// Prettify
+			String formattedIndex = "\tIndex " + i;
+			if (i < 10)
+			{
+				formattedIndex += " ";
+			}
+			formattedIndex += ": ";
+
+			// Printing
+			System.out.println(formattedIndex + array[i]);
+		}
+
+		System.out.println("*****************\n");
+	}
+
+	/**
+	 * Finds the index of the most and least expensive tickets
+	 *
+	 * @param array Array of PublicTranport containing to be searched
+	 *
+	 * @return int array of length 2, array[0] = least expensive, array[1] = most expensive
+	 */
+	public static int[] traceSearchLeastAndMostExpensive(PublicTransport[] array) {
+		int    least_index = 0;
+		double least_price = 1000000;
+		int    most_index  = 0;
+		double most_price  = 0;
+
+		for (int i = 0; i < array.length; i++)
+		{
+			// Grab the price
+			double price = array[i].getTicketPrice();
+
+			// If the price is the lowest so far, store the price and the index
+			if (price < least_price)
+			{
+				least_price = price;
+				least_index = i;
+			}
+
+			// If the price is the highest so far, store the price and the index
+			if (price > most_price)
+			{
+				most_price = price;
+				most_index = i;
+			}
+
+		}
+		// Return the array containing the information
+		int[] indexArray = new int[] {least_index, most_index};
+		return indexArray;
+	}
 
 	/**
 	 * Generates a random number with a maximum
@@ -229,6 +454,15 @@ public class Main {
 		int yearNow = 2019;
 
 		return yearNow - getRandomInt(maxAge);
+	}
+
+	/**
+	 * Generate a random PublicTransport object
+	 *
+	 * @return a PublicTransport object
+	 */
+	public static PublicTransport getRandomPublicTransport() {
+		return new PublicTransport(getRandomPrice(), getRandomInt(11) + 1);
 	}
 
 	/**

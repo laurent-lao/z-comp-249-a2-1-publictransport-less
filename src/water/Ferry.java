@@ -2,20 +2,32 @@ package water;
 
 import transport.PublicTransport;
 
-//@TODO Ferry copy
 public class Ferry extends PublicTransport {
 
 	int    buildYear;
 	String skipName = "";
 
 	public Ferry() {
+
+		// *** Uses parent class's constructor automatically *** no need of super()
+
 		buildYear = 0;
 	}
 
 	public Ferry(double ticketPrice, int numberOfStops, int buildYear, String skipName) {
+		// Uses parent class's constructor
 		super(ticketPrice, numberOfStops);
+
 		this.buildYear = buildYear;
 		this.skipName = skipName;
+	}
+
+	public Ferry(Ferry ferry) {
+		// Uses parent class's constructor
+		super(ferry);
+
+		this.buildYear = ferry.buildYear;
+		this.skipName = ferry.skipName;
 	}
 
 	public int getBuildYear() {
@@ -43,6 +55,10 @@ public class Ferry extends PublicTransport {
 		{
 			return false;
 		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
 		Ferry ferry = (Ferry) o;
 		return buildYear == ferry.buildYear &&
 				skipName.equals(ferry.skipName) &&
@@ -50,11 +66,10 @@ public class Ferry extends PublicTransport {
 	}
 
 	public String toString() {
-		return "Ferry{" +
-				"buildYear=" + buildYear +
-				", skipName='" + skipName + '\'' +
-				", ticketPrice=" + ticketPrice +
-				", numberOfStops=" + numberOfStops +
-				'}';
+		return "Ferry:" +
+				" [Ticket Price] " + ticketPrice +
+				" [Number Of Stops] " + numberOfStops +
+				" [Build Year] " + buildYear +
+				" [Skip Name] " + skipName;
 	}
 }
