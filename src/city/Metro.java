@@ -65,10 +65,10 @@ public class Metro extends CityBus {
 	public String toString() {
 		return "This Metro's" +
 				" ticket price is $" + ticketPrice +
-				", has " + numberOfStops + " stops"+
+				", has " + numberOfStops + " stops" +
 				" and " + numberOfVehicles + " vehicles." +
 				" The Route Number " + routeNumber +
-				" (" + lineName + ")"+
+				" (" + lineName + ")" +
 				" operating in " + nameOfTheCity +
 				" started in " + beginOperationYear +
 				" and is driven by " + driverName + ".";

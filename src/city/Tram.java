@@ -54,7 +54,7 @@ public class Tram extends CityBus {
 		return "This Tram's" +
 				" ticket price is $" + ticketPrice +
 				", has " + numberOfStops + " stops" +
-				" and has a maximum speed of " + maximumSpeed +" km/h. "+
+				" and has a maximum speed of " + maximumSpeed + " km/h. " +
 				" The Route Number " + routeNumber +
 				" (" + lineName + ")" +
 				" started in " + beginOperationYear +
